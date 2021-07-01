@@ -19,24 +19,6 @@ variable "manage_default_security_group" {
   type        = bool
 }
 
-variable "enable_vpc_flow_log" {
-  description = "Enabled VPC flow log to capture IP traffic. Logs are sent to s3 bucket."
-  type        = bool
-}
-
-variable "vpc_flow_log_s3_bucket_arn" {
-  type        = string
-  default     = ""
-  description = "S3 ARN for VPC logs."
-  sensitive   = true
-}
-
-variable "vpc_flow_log_traffic_type" {
-  type        = string
-  default     = "ALL"
-  description = "Type of traffic to capture in VPC logs. Valid values: ACCEPT, REJECT, ALL."
-}
-
 variable "manage_default_route_table" {
   type        = bool
   default     = false

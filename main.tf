@@ -118,15 +118,3 @@ resource "aws_default_security_group" "default" {
     TerraformWorkspace = var.TFC_WORKSPACE_SLUG
   }
 }
-
-resource "aws_flow_log" "vpc_flow_log" {
-  count                = var.enable_vpc_flow_log == true ? 1 : 0
-  vpc_id               = aws_vpc.this.id
-  log_destination      = var.vpc_flow_log_s3_bucket_arn
-  log_destination_type = "s3"
-  traffic_type         = var.vpc_flow_log_traffic_type
-  tags = {
-    Name               = var.name
-    TerraformWorkspace = var.TFC_WORKSPACE_SLUG
-  }
-}
